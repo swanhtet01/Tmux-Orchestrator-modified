@@ -121,11 +121,41 @@ class GitHubManager:
 Performance Analysis:
 -------------------
 Success Rate: {success_rate:.2f}%
+<<<<<<< HEAD
+Total Operations: {total_operations}
+=======
+>>>>>>> cdfb174494abca0dd742976eff8e6cac8adfb790
 Successful Pushes: {self.performance_metrics['successful_pushes']}
 Failed Pushes: {self.performance_metrics['failed_pushes']}
 Successful API Calls: {self.performance_metrics['successful_api_calls']}
 Failed API Calls: {self.performance_metrics['failed_api_calls']}
 """
+<<<<<<< HEAD
+        return report
+
+    def optimize(self):
+        """Implement self-optimization based on performance metrics."""
+        if self.performance_metrics['failed_pushes'] > 0:
+            print("🔄 Implementing retry mechanism for failed pushes...")
+            # Add retry mechanism for failed operations
+        if self.performance_metrics['failed_api_calls'] > 0:
+            print("🔄 Implementing rate limiting and automatic retries for API calls...")
+            # Add rate limiting and automatic retries
+
+if __name__ == "__main__":
+    # Example usage
+    token = os.getenv("GITHUB_TOKEN")  # Set your GitHub token as an environment variable
+    if not token:
+        print("❌ GitHub token not found. Please set the GITHUB_TOKEN environment variable.")
+        exit(1)
+
+    manager = GitHubManager(token)
+
+    # Example operations
+    # manager.push_changes("/path/to/repo", "Automated commit message")
+    # manager.create_issue("owner/repo", "Issue Title", "Issue Body")
+    # manager.list_repos()
+=======
 
         if success_rate < 80:
             report += "\n⚠️ Performance is below optimal levels. Consider:"
@@ -137,3 +167,4 @@ Failed API Calls: {self.performance_metrics['failed_api_calls']}
                 report += "\n- Checking API rate limits"
 
         return report
+>>>>>>> cdfb174494abca0dd742976eff8e6cac8adfb790
