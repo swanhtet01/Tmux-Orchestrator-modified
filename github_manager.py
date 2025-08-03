@@ -121,16 +121,20 @@ class GitHubManager:
 Performance Analysis:
 -------------------
 Success Rate: {success_rate:.2f}%
-<<<<<<< HEAD
 Total Operations: {total_operations}
-=======
->>>>>>> cdfb174494abca0dd742976eff8e6cac8adfb790
 Successful Pushes: {self.performance_metrics['successful_pushes']}
 Failed Pushes: {self.performance_metrics['failed_pushes']}
 Successful API Calls: {self.performance_metrics['successful_api_calls']}
 Failed API Calls: {self.performance_metrics['failed_api_calls']}
 """
-<<<<<<< HEAD
+        if success_rate < 80:
+            report += "\n⚠️ Performance is below optimal levels. Consider:"
+            if self.performance_metrics['failed_pushes'] > self.performance_metrics['successful_pushes']:
+                report += "\n- Checking Git authentication and permissions"
+                report += "\n- Validating remote repository configurations"
+            if self.performance_metrics['failed_api_calls'] > self.performance_metrics['successful_api_calls']:
+                report += "\n- Verifying API token validity and permissions"
+                report += "\n- Checking API rate limits"
         return report
 
     def optimize(self):
@@ -155,16 +159,3 @@ if __name__ == "__main__":
     # manager.push_changes("/path/to/repo", "Automated commit message")
     # manager.create_issue("owner/repo", "Issue Title", "Issue Body")
     # manager.list_repos()
-=======
-
-        if success_rate < 80:
-            report += "\n⚠️ Performance is below optimal levels. Consider:"
-            if self.performance_metrics['failed_pushes'] > self.performance_metrics['successful_pushes']:
-                report += "\n- Checking Git authentication and permissions"
-                report += "\n- Validating remote repository configurations"
-            if self.performance_metrics['failed_api_calls'] > self.performance_metrics['successful_api_calls']:
-                report += "\n- Verifying API token validity and permissions"
-                report += "\n- Checking API rate limits"
-
-        return report
->>>>>>> cdfb174494abca0dd742976eff8e6cac8adfb790

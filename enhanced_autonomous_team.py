@@ -22,10 +22,6 @@ class EnhancedAutonomousTeam:
             'description': description,
             'repo_path': repo_path
         })
-<<<<<<< HEAD
-=======
-
->>>>>>> cdfb174494abca0dd742976eff8e6cac8adfb790
     def start_periodic_updates(self, repo_path: str, interval: int = 600):
         """Periodically update status.log and sync to GitHub."""
         def periodic():
@@ -34,10 +30,7 @@ class EnhancedAutonomousTeam:
                 time.sleep(interval)
         thread = threading.Thread(target=periodic, daemon=True)
         thread.start()
-<<<<<<< HEAD
-=======
 
->>>>>>> cdfb174494abca0dd742976eff8e6cac8adfb790
     def update_status_log(self, repo_path: str, message: str):
         """Create or update a status.log file in the repo."""
         # Ensure directory exists
@@ -53,10 +46,6 @@ class EnhancedAutonomousTeam:
         print(f"📝 Updated status.log in {repo_path}")
         # Queue a sync task with absolute repo path
         self.add_task({'type': 'github_sync', 'repo_path': repo_path})
-<<<<<<< HEAD
-=======
-
->>>>>>> cdfb174494abca0dd742976eff8e6cac8adfb790
     def __init__(self, base_config: dict = None):
         self.base_config = base_config or {}
         self.session_name = self.base_config.get('session_name', 'enhanced-dev-team')
@@ -191,11 +180,7 @@ class EnhancedAutonomousTeam:
         # Add more task types as needed
 
     def handle_development_task(self, task: Dict):
-<<<<<<< HEAD
-        """Handle a development task (stub for now)."""
-=======
         """Handle a development task."""
->>>>>>> cdfb174494abca0dd742976eff8e6cac8adfb790
         description = task.get('description')
         repo_path = task.get('repo_path')
         print(f"🛠️ Working on development task: {description} in {repo_path}")
@@ -238,11 +223,7 @@ class EnhancedAutonomousTeam:
                     subprocess.run(['git', 'remote', 'add', 'origin', remote_url], cwd=repo_path)
                 self.github_manager.push_changes(repo_path, commit_message)
                 # Push to remote
-<<<<<<< HEAD
-                subprocess.run(['git', 'push', '-u', 'origin', 'master'], cwd=repo_path)
-=======
                 subprocess.run(['git', 'push', '-u', 'origin', 'main'], cwd=repo_path)
->>>>>>> cdfb174494abca0dd742976eff8e6cac8adfb790
                 print(f"✅ Synced {repo_path} to GitHub.")
             except Exception as e:
                 print(f"❌ Failed to sync {repo_path}: {e}")
@@ -280,11 +261,7 @@ class EnhancedAutonomousTeam:
         
         try:
             # Update status.log in both repos and queue sync
-<<<<<<< HEAD
-            repo_dirs = [os.path.expanduser('~/InsightFactory'), os.path.expanduser('~/Tmux-Orchestrator-modified')]
-=======
             repo_dirs = [os.path.expanduser('~/InsightFactory'), os.path.expanduser('~/Downloads/Tmux-Orchestrator-modified')]
->>>>>>> cdfb174494abca0dd742976eff8e6cac8adfb790
             for repo_dir in repo_dirs:
                 self.update_status_log(repo_dir, "Autonomous team running and scaling!")
                 self.start_periodic_updates(repo_dir, interval=600)
@@ -311,8 +288,4 @@ class EnhancedAutonomousTeam:
 
 if __name__ == "__main__":
     team = EnhancedAutonomousTeam()
-<<<<<<< HEAD
     team.start()
-=======
-    team.start()
->>>>>>> cdfb174494abca0dd742976eff8e6cac8adfb790
